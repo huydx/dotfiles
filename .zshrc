@@ -60,8 +60,6 @@ export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 export EDITOR=vim
 
-export REDIS_CLOUD=redis-13247.us-east-1-1.1.ec2.garantiadata.com:13247
-
 #Customize to your needs...
 export PATH=$PATH:/usr/local/heroku/bin:/usr/local/share/npm/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/git/bin:/usr/texbin:/usr/X11/bin:/Library/Frameworks/Python.framework/Versions/2.7/bin:/Users/doxuanhuy/.rvm/gems/ruby-1.9.3-p194/bin:/Users/doxuanhuy/.rvm/gems/ruby-1.9.3-p194@global/bin:/Users/doxuanhuy/.rvm/rubies/ruby-1.9.3-p194/bin:/Users/doxuanhuy/.rvm/bin:/usr/local/heroku/bin:/usr/local/share/npm/bin:/Users/doxuanhuy/.nvm/v0.8.16/bin:/Users/doxuanhuy/adt-bundle-mac-x86/sdk/tools:/Users/doxuanhuy/adt-bundle-mac-x86/sdk/platform-tools:/Users/doxuanhuy/adt-bundle-mac-x86_64/sdk/platform-tools:/Users/doxuanhuy/adt-bundle-mac-x86_64/sdk/tools:/usr/local/share/python/:/Users/doxuanhuy/.rvm/bin:/Users/doxuanhuy/.rvm/bin
 
