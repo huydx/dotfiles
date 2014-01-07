@@ -1,0 +1,13 @@
+[user]
+	name = dxhuy1988
+	email = doxuanhuy@gmail.com
+	mail = doxuanhuy@gmail.com
+[merge "gemfilelock"]
+  name = relocks the gemfile.lock
+  driver = bundle lock
+
+
+[diff]
+	tool = vimdiff
+[color]
+	ui = true

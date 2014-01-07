@@ -1,0 +1,5 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =3
+let g:netrw_dirhist_1='/Users/doxuanhuy/Desktop/aiming-serversrc/ouengine-source/engine/cpp/foundation'
+let g:netrw_dirhist_2='/Users/doxuanhuy/cur-project/ktmtblog-octopress/source/_posts'
+let g:netrw_dirhist_3='/Users/doxuanhuy/Desktop/aiming-serversrc/server-src/gmsv/campaign_code'
