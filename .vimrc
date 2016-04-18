@@ -16,21 +16,24 @@ set clipboard=unnamed
 filetype plugin on
 set ofu=syntaxcomplete#Complete
 :set gfn=Andale\ Mono:h14
-:colorscheme slate 
 set mouse=a
 set guioptions+=a
 set ttymouse=xterm2
 set clipboard=unnamed
 :set hlsearch
 set backspace=indent,eol,start
-set nobackup
+set backupdir=/tmp
+set noswapfile
 set so=20
+set tags=./tags,tags;$HOME
+"set molokai color
+:colorscheme molokai
 
 "-----------set auto tab and tab indent
-set pastetoggle=<C-z> 
+set pastetoggle=<C-z>
 :set smartindent
 :set autoindent
-:set tabstop=2   
+:set tabstop=2
 :set shiftwidth=2
 :set expandtab
 set clipboard+=unnamed
@@ -44,6 +47,7 @@ nmap <C-n> <Esc>:bn<CR>
 nmap <C-a> <Esc>0
 nmap <C-e> <Esc>$
 nmap <C-q> <Esc>:q
+nmap <C-s> <Esc>:shell
 nmap <C-t> <Esc>:tabnext<CR>
 nmap <C-b> <Esc>:Unite buffer<CR>
 nmap <C-f> <Esc>:Unite file<CR>
@@ -87,3 +91,31 @@ if has("multi_byte")
   "setglobal bomb
   set fileencodings=ucs-bom,utf-8,latin1
 endif
+
+function ShowSpaces(...)
+  let @/='\v(\s+$)|( +\ze\t)'
+  let oldhlsearch=&hlsearch
+  if !a:0
+    let &hlsearch=!&hlsearch
+  else
+    let &hlsearch=a:1
+  end
+  return oldhlsearch
+endfunction
+
+function TrimSpaces() range
+  let oldhlsearch=ShowSpaces(1)
+  execute a:firstline.",".a:lastline."substitute ///gec"
+  let &hlsearch=oldhlsearch
+endfunction
+
+command -bar -nargs=? ShowSpaces call ShowSpaces(<args>)
+command -bar -nargs=0 -range=% TrimSpaces <line1>,<line2>call TrimSpaces()
+nnoremap <F12>     :ShowSpaces 1<CR>
+nnoremap <S-F12>   m`:TrimSpaces<CR>``
+vnoremap <S-F12>   :TrimSpaces<CR>
+:highlight ExtraWhitespace ctermbg=red guibg=red
+:match ExtraWhitespace /\s\+$/
+let g:mta_use_matchparen_group = 1
+autocmd QuickFixCmdPost *grep* cwindow
+set statusline+=%{fugitive#statusline()}
